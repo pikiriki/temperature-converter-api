@@ -7,7 +7,9 @@ const server = http.createServer((req, res) => {
 
     console.log(url.pathname);
 
-    res.end("Hello Backend");
+    if (url.pathname === "/celsius-to-fahrenheit") {
+        res.end("Celsius to Fahrenheit route");
+    }
 });
 
 server.listen(3000);
