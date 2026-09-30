@@ -26,6 +26,9 @@ const server = http.createServer((req, res) => {
         const celsius = (fahrenheit - 32) * 5 / 9;
 
         res.end(`${fahrenheit}°F is ${celsius}°C.`);
+    } else {
+        res.statusCode = 404;
+        res.end("Route not found.");
     }
 });
 
