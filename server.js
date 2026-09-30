@@ -14,7 +14,11 @@ const server = http.createServer((req, res) => {
 
         res.end(`${celsius}°C is ${fahrenheit}°F.`);
     } else if (url.pathname === "/fahrenheit-to-celsius") {
-        res.end("Fahrenheit to Celsius route");
+        const temperatureText = url.searchParams.get("temperature");
+        const fahrenheit = Number(temperatureText);
+        const celsius = (fahrenheit - 32) * 5 / 9;
+
+        res.end(`${fahrenheit}°F is ${celsius}°C.`);
     }
 });
 
