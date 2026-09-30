@@ -7,7 +7,14 @@ const server = http.createServer((req, res) => {
 
     console.log(url.pathname);
 
-    if (url.pathname === "/celsius-to-fahrenheit") {
+    if (url.pathname === "/") {
+        res.end(
+            "Temperature Converter API\n\n" +
+            "Available routes:\n" +
+            "/celsius-to-fahrenheit?temperature=100\n" +
+            "/fahrenheit-to-celsius?temperature=212"
+        );
+    } else if (url.pathname === "/celsius-to-fahrenheit") {
         const temperatureText = url.searchParams.get("temperature");
         const celsius = Number(temperatureText);
         const fahrenheit = (celsius * 9 / 5) + 32;
