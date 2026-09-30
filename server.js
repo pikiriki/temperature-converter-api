@@ -7,6 +7,9 @@ const server = http.createServer((req, res) => {
 
     console.log(url.pathname);
 
+    res.setHeader("Content-Type", "text/plain; charset=utf-8");
+
+
     if (url.pathname === "/") {
         res.end(
             "Temperature Converter API\n\n" +
